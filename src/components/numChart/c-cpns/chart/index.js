@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { ChartDiv, LineDiv } from "./style";
-
-function Chart(props) {
+import { v4 as uuidv4 } from "uuid";
+const Chart = memo((props) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     console.log(props.data);
@@ -11,8 +11,8 @@ function Chart(props) {
   return (
     <ChartDiv wrapper={{ height: 200 }}>
       <div className="top">
-        {data.map((item, index) => (
-          <LineDiv className="item" height={item} key={index} color="#8895b5">
+        {data.map((item) => (
+          <LineDiv height={item} color="#8895b5" key={uuidv4()}>
             <div className="num">{item}</div>
             <div className="line"></div>
           </LineDiv>
@@ -27,6 +27,6 @@ function Chart(props) {
       </div>
     </ChartDiv>
   );
-}
+});
 
 export default Chart;
