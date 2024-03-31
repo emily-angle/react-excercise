@@ -11,10 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-@keyframes mymove {
-  from {
-    height: 0px;
-  }
-  to {
-  }
-}

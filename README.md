@@ -6,6 +6,8 @@
 
 ![image](https://s11.ax1x.com/2024/03/03/pFBGlxs.png)
 
+2.实现 axios，通过 promise 实现类似 axios 的功能
+
 In the project directory, you can run:
 
 ### `npm start`

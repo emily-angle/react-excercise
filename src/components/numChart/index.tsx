@@ -1,16 +1,19 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import Chart from "./c-cpns/chart";
 import Controllers from "./c-cpns/controllers";
-import { generateNumList } from "./../../utils";
+import { generateNumList } from "../../utils";
 function ChartShowByControllers() {
-  const [count, setCount] = useState(5);
-  const [range, setRange] = useState(50);
-  const [chartData, setChartData] = useState(() => {
+  // 图表中的元素个数
+  const [count, setCount] = useState<number>(5);
+  // 值变化范围
+  const [range, setRange] = useState<number>(50);
+  // 图表数据集合
+  const [chartData, setChartData] = useState<number[]>(() => {
     return generateNumList(count, range);
   });
 
   const submitChangeAction = useCallback(() => {
-    // 计算图表的数据
+    // 重新计算图表的数据
     const result = generateNumList(count, range);
     setChartData(result);
   }, [count, range]);

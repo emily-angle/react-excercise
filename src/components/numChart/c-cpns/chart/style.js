@@ -20,6 +20,7 @@ export const ChartDiv = styled.div`
 `;
 export const LineDiv = styled.div`
   width: 40px;
+  position: relative;
 
   @keyframes mymove {
     0% {
@@ -36,5 +37,11 @@ export const LineDiv = styled.div`
     background-color: ${(props) => props.color || "red"};
     height: ${(props) => props.height + "px"};
     animation: mymove 0.1s ease-out;
+  }
+  .index {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: -20px;
   }
 `;

@@ -1,6 +1,15 @@
-import React from "react";
 import { ControllerDiv } from "./style";
-function Controllers(props) {
+// 控制器
+
+interface ControllerProps {
+  submitChangeAction: () => void;
+  changeCount: (val: number) => void;
+  changeRange: (val: number) => void;
+  count: number;
+  range: number;
+}
+
+const Controllers = (props: ControllerProps) => {
   // 提交数量，将count和range传给父组件
   const submitAction = () => {
     props.submitChangeAction();
@@ -12,7 +21,9 @@ function Controllers(props) {
         <input
           value={props.count}
           type="number"
-          onChange={(e) => props.changeCount(e.target.value)}
+          onChange={(e) =>
+            props.changeCount(e.target.value as unknown as number)
+          }
           min={0}
         />
       </div>
@@ -22,7 +33,9 @@ function Controllers(props) {
           type="number"
           value={props.range}
           min={0}
-          onChange={(e) => props.changeRange(e.target.value)}
+          onChange={(e) =>
+            props.changeRange(e.target.value as unknown as number)
+          }
         />
       </div>
       <div className="right">
@@ -30,6 +43,6 @@ function Controllers(props) {
       </div>
     </ControllerDiv>
   );
-}
+};
 
 export default Controllers;
